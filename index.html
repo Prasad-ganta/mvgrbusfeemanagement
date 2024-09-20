@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Management System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Bus Management System</h1>
+            <button id="logoutButton" onclick="adminLogout()" style="display: none;">Log Out</button>
+        </header>
+        <div id="loginContainer">
+            <div class="tab-container">
+                <button class="tab-button active" onclick="switchTab('student')">Student</button>
+                <button class="tab-button" onclick="switchTab('admin')">Admin</button>
+            </div>
+            <div id="studentLogin" class="login-form">
+                <input type="text" id="studentId" placeholder="Enter Student ID">
+                <button onclick="studentLogin()">Login</button>
+            </div>
+            <div id="adminLogin" class="login-form" style="display: none;">
+                <input type="password" id="adminPassword" placeholder="Enter Admin Password">
+                <button onclick="adminLogin()">Login</button>
+            </div>
+        </div>
+        <div id="adminContainer" style="display: none;">
+            <input type="text" id="busInput" placeholder="Enter Bus Name">
+            <button onclick="displayBusDetails()">View Bus Details</button>
+            <div class="actions">
+                <button onclick="showAddBusForm()">Add New Bus</button>
+                <button onclick="showAddStudentForm()">Add New Student</button>
+                <button onclick="showChangePasswordForm()">Change Admin Password</button>
+                <button onclick="showSearchStudentForm()">Search Student</button>
+                <button onclick="updateFeeByIdOrDept()">Update Fees</button>
+                <button onclick="grantPermissionByIdOrDept()">Grant Permission</button>
+                <button onclick="deleteStudentByIdOrDept()">Delete Student</button>
+                <button onclick="printAllBusDetails()">Print All Bus Details</button>
+                <button onclick="changeStudentYear()">Change Student Year</button>
+            </div>
+            <div id="formContainer" style="display: none;">
+                <div id="addBusForm" style="display: none;">
+                    <h2>Add New Bus</h2>
+                    <input type="text" id="newBusName" placeholder="Enter Bus Name">
+                    <button onclick="addBus()">Add Bus</button>
+                </div>
+                <div id="addStudentForm" style="display: none;">
+                    <h2>Add New Student</h2>
+                    <input type="text" id="studentBusName" placeholder="Bus Name">
+                    <input type="text" id="newStudentId" placeholder="Student ID">
+                    <input type="text" id="studentName" placeholder="Student Name">
+                    <input type="text" id="studentDepartment" placeholder="Department">
+                    <input type="text" id="studentYear" placeholder="Year of Study">
+                    <input type="number" id="feesTotal" placeholder="Total Fees">
+                    <input type="number" id="feesPaid" placeholder="Fees Paid">
+                    <input type="number" id="fine" placeholder="Fine (if any)">
+                    <input type="text" id="busStop" placeholder="Bus Stop">
+                    <button onclick="addStudent()">Add Student</button>
+                </div>
+                <div id="changePasswordForm" style="display: none;">
+                    <h2>Change Admin Password</h2>
+                    <input type="password" id="currentPassword" placeholder="Current Password">
+                    <input type="password" id="newPassword" placeholder="New Password">
+                    <button onclick="changeAdminPassword()">Change Password</button>
+                </div>
+                <div id="searchStudentForm" style="display: none;">
+                    <h2>Search Student</h2>
+                    <input type="text" id="searchStudentId" placeholder="Enter Student ID">
+                    <button onclick="searchStudent()">Search</button>
+                </div>
+            </div>
+            <div id="busDetails"></div>
+            <div id="searchResult"></div>
+        </div>
+        <div id="studentDetails" style="display: none;">
+            <div id="studentInfo"></div>
+            <button onclick="printStudentDetails()">Print</button>
+            <button onclick="studentLogout()">Logout</button>
+        </div>
+    </div>
+    <div id="toast"></div>
+    <script src="script.js"></script>
+</body>
+</html>
